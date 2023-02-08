@@ -19,6 +19,6 @@ pip install requirements.txt
 ```
 
 ```
- python3 Scraper.py 
+python3 Scraper.py 
 ```
 
