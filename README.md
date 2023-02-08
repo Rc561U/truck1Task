@@ -21,4 +21,4 @@ pip install requirements.txt
 ```
  python3 src/Scraper.py 
 ```
-
+was tested at ubuntu 20.04
