@@ -1,15 +1,14 @@
 # Data scraper
 
 ## Description:
-
+A simple parser that retrieve data and downloads the first 3 images for every first car on the every page.
 ## Used technology:
 
 - ### Docker & Docker-Compose
 - ### Selenium
 - ### Python3.8
-- ### BeautifulSoup4
 
-## Installation:
+## Usage:
 
 ```
 docker-compose up -d
@@ -19,8 +18,7 @@ docker-compose up -d
 pip install requirements.txt
 ```
 
-## How does it work
+```
+ python3 Scraper.py 
+```
 
-1. Selenium scrap all available pages and save to array links of first car at page
-2. Used requests and get raw html  from every link of array
-3. Obtaining necessary information using BS4
