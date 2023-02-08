@@ -39,7 +39,6 @@ class Saver():
             json.dump(data, data1, indent=4, ensure_ascii=False)
 
     def save_vehicle_data(self, holder):
-        # self.get_vehicle_data()
         with open("result.json", ) as file:
             data = json.load(file)
             data['ads'].append({
