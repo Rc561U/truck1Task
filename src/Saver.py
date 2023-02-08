@@ -3,10 +3,8 @@ from selenium.webdriver.common.by import By
 import json
 import os
 
-from src.Holder import Holder
 
-
-class Saver(Holder):
+class Saver():
     def __init__(self):
         self.create_json_file()
 
@@ -18,8 +16,8 @@ class Saver(Holder):
         if not os.path.exists(dir):
             os.mkdir(dir)
 
-    def save_images(self, id, images):
-        dir = os.path.join(os.getcwd(), f"data/{id}")
+    def save_images(self, ids, images):
+        dir = os.path.join(os.getcwd(), f"data/{ids}")
         if not os.path.exists(dir):
             os.mkdir(dir)
         counter = 0
@@ -32,7 +30,7 @@ class Saver(Holder):
             fname = imager.split('/')[-1]
             counter += 1
 
-            with open(f"data/{id}/{fname}", 'wb') as handler:
+            with open(f"data/{ids}/{fname}", 'wb') as handler:
                 handler.write(img_data)
 
     @staticmethod
@@ -40,19 +38,18 @@ class Saver(Holder):
         with open("result.json", "w") as data1:
             json.dump(data, data1, indent=4, ensure_ascii=False)
 
-    def save_vehicle_data(self):
+    def save_vehicle_data(self, holder):
         # self.get_vehicle_data()
         with open("result.json", ) as file:
             data = json.load(file)
-            print(self.get_vehicl())
             data['ads'].append({
-                'id': int(self.id),
-                'href': self.vehicle_page,
-                'title': self.title,
-                'price': self.price,
-                'color': self.color,
-                'power': self.power,
-                'mileage': self.mileage,
-                'description': self.text,
+                'id': int(holder.get_id),
+                'href': holder.get_vehicle_page,
+                'title': holder.get_title,
+                'price': holder.get_price,
+                'color': holder.get_color,
+                'power': holder.get_power,
+                'mileage': holder.get_mileage,
+                'description': holder.get_text,
             })
             self.save_data_to_json(data)
