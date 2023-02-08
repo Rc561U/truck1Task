@@ -4,7 +4,7 @@ import json
 import os
 
 
-class Saver():
+class Saver:
     def __init__(self):
         self.create_json_file()
 

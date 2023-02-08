@@ -36,7 +36,7 @@ class Scraper:
         self.holder.get_text =  self.driver.find_element(By.XPATH, "//div[@data-type='description']").text
         description = self.driver.find_element(By.XPATH, "//ul[@class='columns']").find_elements(By.TAG_NAME, "li")
         for equal in description:
-            first_elem, second_elem = equal.text.split('\n')
+            first_elem, second_elem,  *_ = equal.text.split('\n')
             if first_elem == "Farbe": self.holder.get_color = second_elem
             if first_elem == "Leistung": self.holder.get_power = second_elem
         self.holder.get_mileage = self.driver.find_elements(By.XPATH, "//div[@class='itemspace']")
